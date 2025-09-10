@@ -484,7 +484,29 @@ let listing0 = listings[0];
  * and currentOwner which is a string with the value of Jane Doe
  */
 //WRITE YOUR CODE BELOW
-
+const listing1 =
+  {id: "50100",
+    price: "$439,500",
+    address: "123 Water Street",
+    postalCode: "K6J 1T5",
+    MLSnumber: "1328809",
+    photo: "../img/10100.jpg",
+    description:
+      "This condo may be the perfect fit for you. Located in a highly sought after building, this unit has many brag worthy features. Starting with the building itself, recent improvements include: new roof, windows, and plumbing. The interior of the unit features a spacious layout, and offers scenic views of Lamoureux Park & the St. Lawrence River, which can be enjoyed from your own private balcony. This condo offers 2 spacious bedrooms and 2 bathrooms, including a master bedroom with ensuite, complete with walk-in closet. The galley style kitchen has been tastefully upgraded with granite counter tops, white cabinetry, and an undermount sink. In addition to all this, an indoor parking space, and a storage locker are also included. Don't miss out on this one. Call to book a private viewing today.",
+    propertySummary: {
+      propertyType: "Single Family",
+      buildingType: "Apartment Building",
+      storeys: "1",
+      title: "Condominium",
+      builtIn: "2001",
+      taxes: "$4,390",
+      parking: "Attached Garage",
+    },
+    isSold: false,
+    currentOwner: "Jane Doe"
+  };
+const listingAdded = [...listings, listing1];
+console.log(listingAdded);
 /**
  * Task-3: print to console a text using template literals that contains the name of the owner,
  * and their current address for listing1.
@@ -492,6 +514,7 @@ let listing0 = listings[0];
  * "This house at (address) is owned by (currentOwner)"
  */
 //WRITE YOUR CODE BELOW
+console.log(`This house at ${listing1.address} is owned by ${listing1.currentOwner}`);
 
 /**
  * NOTE: THIS TASK IS TRICKY!
@@ -507,14 +530,24 @@ let listing0 = listings[0];
  * USE TERNARIES INSTEAD OF IF/ELSE STATEMENTS!
  */
 //WRITE YOUR CODE BELOW
-
+function realtorFees(listing) {
+  const price = Number(listing.price.replace(/[$,]/g, ""))
+  let result = (price > 450000) ? `Realtor fees: ${price * .02}` : `Realtor fees: ${price * .025}`;
+  return result;
+}
+console.log(realtorFees(listing1)) ;
 /**
  * Task-5: Sort the listing array ascendingly in a new variable called listingAscendingly
  */
 //WRITE YOUR CODE BELOW
+const listingAscendingly = listings.sort((listingA, listingB) => Number(listingA.price.replace(/[$,]/g, "")) - Number(listingB.price.replace(/[$,]/g, "")));
+console.log(listingAscendingly);
 
 /**
  * Task-6: filter all the listings by bulitIn propertity for all houses built on or after 1990.
  * Name the variable newBuiltListings
  */
 //WRITE YOUR CODE BELOW
+
+const newBuild = listings.filter((listing) => Number(listing.propertySummary.builtIn.replace(/\D/g, "") >= 1990 );
+console.log(newBuild);
