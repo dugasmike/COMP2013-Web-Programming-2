@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /vendor/
 node_modules/
 npm-debug.log
@@ -28,3 +29,9 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+=======
+# Ignore all node_modules folders in all subfolders
+node_modules/
+**/node_modules/
+
+>>>>>>> e0b36ae34ca36c98bd8d7dfdfd051c20fb0a74b6
